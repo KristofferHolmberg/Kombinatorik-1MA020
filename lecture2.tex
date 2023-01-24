@@ -88,7 +88,7 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
   \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{graphics/GLÖM EJ INFOGA BILD.png}
-    \caption{Bevis att summan av de första $n$ udda talen är $n^2$.}
+    \caption{Ett rutnät av $n\timesn$ punkter. Bevis att summan av de första $n$ udda talen är $n^2$.}
   \end{figure}
   
   Det totala antalet prickar i figuren är alltså $\sum_{k=1}^n 2k-1$ enligt resonnemanget i bilden ovan. Eftersom figuren är kvadratisk så kan vi även räkna antalet prickar i figuren genom att multiplicera sidorna $n\timesn=n^2$. Svaret på frågan är därför $n^2$. 
@@ -127,12 +127,10 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
 
   \begin{proof}[Kombinatoriskt bevis]
     Låt $X$ vara en mängd av storlek $n$. Vi vet att $\binom{n}{k}$ räknar antalet delmängder av storlek $k$ till $X$. Låt oss komma på ett annat sätt att räkna antalet delmängder av storlek $k$, och se att det ger oss höger led.
-
-    Välj ett godtyckligt element $x \in X$. För varje delmängd $A$ till $X$ så innehåller den antingen $x$, eller så gör den inte det. För att skapa oss en delmängd $A$ av storlek $k$ som innehåller $x$ lägger vi först in $x$ i $A$, och sedan lägger vi till ytterligare $k-1$ element från de återstående $n-1$ elementen. Antalet sätt att göra det vet vi är precis $\binom{n-1}{k-1}$
-
-    Om vi i stället vill ha en delmängd $A$ som \emph{inte} innehåller $x$ så kan vi fritt välja $k$ element av de återstående $n-1$ elementen. Antalet sätt att göra det på vet vi är $\binom{n-1}{k}$.
-
-    Så additionsprincipen säger oss att antalet sätt att välja en delmängd som innehåller $x$ eller inte innehåller $x$ -- vilket ju är alla delmängder -- måste vara summan, alltså $\binom{n-1}{k-1} + \binom{n-1}{k}$, såsom önskat.
+    Välj ett godtyckligt element $x \in X$. Vi låter V beteckna alla delmängder till X som innehåller $x$, dvs $V=\{A\subseteq X:x\in A\} =\{ \{ x\} \cup B | B \subseteq X \backslash \{ x\} , |B|=k-1\}$, och vi låter H beteckna alla delmängder till X som inte innehåller x, dvs $H=\{A\subseteq X:x\notin A\} =\{A \subseteq X \backslash \{ x\} , |A|=k-1\}$. Detta medför att V och H är disjunkta samt att unionen av dem är potensmängden av X. Idén är att först räkna antalet delmängder av storlek k i V och H, och sedan använda additionsregeln för att räkna ut antalet delmängder av storlek k till X. 
+    V innehåller redan elementet x vilket gör att vi har n-1 element kvar att välja från och k-1 val kvar att göra. antalet delmöngder i V är därför FORMWLFORMWLFORMEL.
+    H innehåller inte elementet x vilket gör att vi har n-1 element att välja från och väljer fortfarande ut k element. Antalet delmängder i H är alltså FORMELFORMELFORMEL. Notera att om n=k så är kardinaliteten av H noll eftersom vi inte kan välja ut k ekement från k-1 element. 
+    Till sist använder vi additionsregeln och får att antalet delmängder av storlek k till X är FORMELFORMELFORMEL. Så FORMELFORMELFORMEL. 
   \end{proof}
 \end{proposition}
 
