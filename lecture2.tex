@@ -131,6 +131,11 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
     Välj ett godtyckligt element $x \in X$. För varje delmängd $A$ till $X$ så innehåller den antingen $x$, eller så gör den inte det. För att skapa oss en delmängd $A$ av storlek $k$ som innehåller $x$ lägger vi först in $x$ i $A$, och sedan lägger vi till ytterligare $k-1$ element från de återstående $n-1$ elementen. Antalet sätt att göra det vet vi är precis $\binom{n-1}{k-1}$
 
     Om vi i stället vill ha en delmängd $A$ som \emph{inte} innehåller $x$ så kan vi fritt välja $k$ element av de återstående $n-1$ elementen. Antalet sätt att göra det på vet vi är $\binom{n-1}{k}$.
+    
+    $$\binom{n-1}{k-1}=\{A\subseteq X:x\in A,|A|=k\}=\{\{x\}\cup B:B\subseteq X\backslash\{x\},\:|B|=k-1\}$$
+    
+    $$\binom{n-1}{k}=\{A\subseteq X:x\notin A,|A|=k\}=\{A:A\subseteq X\backslash \{x\},\:|A|=k\}$$
+
 
     Så additionsprincipen säger oss att antalet sätt att välja en delmängd som innehåller $x$ eller inte innehåller $x$ -- vilket ju är alla delmängder -- måste vara summan, alltså $\binom{n-1}{k-1} + \binom{n-1}{k}$, såsom önskat.
   \end{proof}
@@ -172,12 +177,11 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
     Till slut vet vi att det totala antalet ternära strängar måste vara summan av detta över alla $k$, enligt additionsprincipen. Så om vi summerar detta får vi att det finns
     $$\sum_{k=0}^n \binom{n}{k}2^{n-k}$$
     ternära strängar. Efter att ha tillämpat likheten $\binom{n}{k} = \binom{n}{n-k}$ och vänt på indexeringen i summan ser vi att detta är precis höger led i ekvationen vi gav.
-        $$\sum_{k=0}^n \binom{n}{n-k}2^{n-k}=\binom{n}{n}2^n+\binom{n}{n-1}2^{n-1}+\cdots+\binom{n}{1}2^1+\binom{n}{0}2^0$$
-    $$\sum_{k=0}^n \binom{n}{k}2^k=\binom{n}{0}2^0+\binom{n}{1}2^{1}+\cdots+\binom{n}{n-1}2^n-1+\binom{n}{n}2^n$$
+    $$\sum_{k=0}^n \binom{n}{n-k}2^{n-k}=\binom{n}{n}2^n+\binom{n}{n-1}2^{n-1}+\cdots+\binom{n}{1}2^1+\binom{n}{0}2^0$$
+    $$\sum_{k=0}^n \binom{n}{k}2^k=\binom{n}{0}2^0+\binom{n}{1}2^{1}+\cdots+\binom{n}{n-1}2^n-1+\binom{n}{n}2^n$
 
     Så 
     $$\sum_{k=0}^n \binom{n}{n-k}2^{n-k}=\sum_{k=0}^n \binom{n}{k}2^k$$
-  \end{proof}
 
   \begin{proof}[Algebraiskt bevis]
     Vi använder binomialsatsen och ser att
@@ -213,7 +217,7 @@ Antag att vi vill fördela ut $n$ stycken osärskiljbara objekt bland $k$ särsk
 \begin{example}
   Tre stycken lärare konkurrerar om två stycken äpplen de har fått av sina elever. På hur många olika sätt kan äpplena fördelas ut?
 
-  Här är $n=3$ och $k=2$. Det finns sex olika sätt:
+  Här är $k=3$ och $n=2$. Det finns sex olika sätt:
   \begin{table}[h]
     \begin{tabularx}{0.7\textwidth}{ccc}
     Äpplen för A & Äpplen för B      & Äpplen för C \\ 
