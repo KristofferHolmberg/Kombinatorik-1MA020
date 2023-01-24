@@ -52,31 +52,46 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
   
   Han använde dock en annan metod än den vi använder, som inte involverade någon figur. Kan du komma på fler sätt att göra detta? (Eller Googla ``Gauss triangular numbers story'' om du bara vill veta svaret.)}
 
-  Vi studerar ett rutnät av $(n+1)\times(n+1)$ punkter, såsom i figuren.
+  Vi studerar ett rutnät av $(n+1)\times(n+1)$ punkter, såsom i figuren nedan.
 
   \begin{figure}
     \includegraphics{graphics/counting_triangular_numbers_by_square.png}
-    \caption[][2cm]{Ett rutnät av punkter. Figur tagen direkt från förra årets föreläsningsanteckningar.}
+    \caption[][2cm]{Ett rutnät av $(n+1)\times(n+1)$ punkter. Bevis av summan av de först n talen.}
   \end{figure}
   
-  Vi ser på den nedre gröna triangeln, och försöker räkna antalet punkter i den. Vi ser att den vänstra kolumnen har $(n+1)-1 = n$ punkter, den näst vänstraste har $(n+1)-2=n-1$ punkter, och så vidare till den näst längst till höger som har en punkt, och kolumnen längst till höger har noll punkter i den gröna triangeln.
+  Vi ser på den nedre gröna triangeln, och försöker räkna antalet punkter i den. Vi ser att kolumnen längst till vänster i triangeln har $(n+1)-1 = n$ punkter, den näst längst till vänster har $(n+1)-2=n-1$ punkter, och så vidare till den näst längst till höger som har en punkt. Kolumnen längst till höger ligger utanför triangeln pch har färgör noll punkter i den gröna triangeln.
 
-  Alltså, om vi summerar över kolumnerna så får vi att det är totalt $n + (n-1) + \ldots + 2 + 1 = S(n)$ punkter i triangeln. Eftersom kvadraten så klart är helt symmetrisk är det lika många punkter i den övre gröna triangeln, och det är lätt att se att det är $n+1$ punkter på diagonalen.
+  Alltså, om vi summerar över kolumnerna så får vi att det är totalt $n + (n-1) + \ldots + 2 + 1 = S(n)$ punkter i triangeln. Eftersom kvadraten är helt symmetrisk så är det lika många punkter i den övre gröna triangeln, och det är lätt att se att det är $n+1$ punkter på diagonalen.
 
-  Alltså måste det totala antalet punkter i kvadraten vara $2S(n) + (n+1)$ -- men vi vet också, så klart, att det är $(n+1)^2$. Så om vi löser detta för $S(n)$ får vi att
+  Alltså måste det totala antalet punkter i kvadraten vara $2S(n) + (n+1)$ -- men vi kan också räkna det totala antalet punkter genom att multiplicera två av kvadratens sidor, dvs $(n+1)\times(n+1)=(n+1)^2$. Om vi löser detta för $S(n)$ får vi att
+    $$2S(n) + (n+1)=(n+1)^2$$
     $$S(n) = \frac{(n+1)^2 - (n+1)}{2} = \frac{(n+1)((n+1)-1)}{2} = \frac{n(n+1)}{2}$$
   precis som vi önskade.
+  
+  Denna bevismetod kan även användas för att sunmera andra aritmetiska talföljder, dvs talföljder $a_{1},\cdots,a_{n}$ på formen $a_{i+1}=a_{i}+k$ där k är en reell konstant. Vi skapar återigen ett rutnät som denna gång är en rektangel som delas in i exakt två paralelltrapetser. Se följande figur. 
+  
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphics/GLÖM EJ INFOGA BILD!.png}
+    \caption{Rutnät av punkter. Bevis för summan av aritmetriska tlföljder. }
+  \end{figure}
+  
+  Rekangelns höjd är $a_{1}+a_{n}$ (summan v det första och sista talet i talföljden) och dess bas är n. Rektangeln kan med denna information beräknas att ha $n\times(a_{1}+a_{n})$ prickar. Paralelltrapetsen består av hälften så många prickar som rektangeln, dvs $\frac{n\times(a_{1}+a_{n})}{2}$ prickar. Summan av en aritmetisk talföljd är alltså $\frac{n\times(a_{1}+a_{n})}{2}$.  
+  
 \end{example}
 
 \begin{example}
   Vad är summan av de första $n$ udda talen, det vill säga $\sum_{k=1}^n 2k-1$?
-
-  Svaret är $n^2$, som kan ses av nedanstående figur.
+  
+  Svaret på frågan finner vi men hjälp av följande figur, som likt exemplet innan består av ett kvadratiskt rutnät av prickar. 
+  
   \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{graphics/sum_of_odd_integers.png}
-    \caption{Bevis att summan av de första $n$ udda talen är $n^2$. Bilden är tagen ur vår kursbok.}
+    \includegraphics[width=0.5\textwidth]{graphics/GLÖM EJ INFOGA BILD.png}
+    \caption{Bevis att summan av de första $n$ udda talen är $n^2$.}
   \end{figure}
+  
+  Det totala antalet prickar i figuren är alltså $\sum_{k=1}^n 2k-1$ enligt resonnemanget i bilden ovan. Eftersom figuren är kvadratisk så kan vi även räkna antalet prickar i figuren genom att multiplicera sidorna $n\timesn=n^2$. Svaret på frågan är därför $n^2$. 
 \end{example}
 
 \begin{example}\label{example_counting_all_subsets}
