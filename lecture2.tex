@@ -389,13 +389,36 @@ Vilket låter logiskt eftersom 735 är 7 åttondelar av 840 och det borde finnas
 
 
 \begin{xca}
+Ternära strängar består av alfabetet $\{ 0, 1, 2\}$ så $X=\{ 0, 1, 2\}$
+
+\begin{column}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c}
+\hline
+Position i & $1$ & $2$ & $3$ & $\cdots$ & $n$ & $n+1$ & $n+2$ & $n+3$ & $\cdots$ & $2n$ $ \\
+\hline
+Element x_i & x_1 & x_2 & x_3 &$\cdots$ & x_n & x_{n+1} & x_{n+2} & x_{n+3} & $\cdots $ & x_{2n} \\
+\hline
+\end{tabular}
+\end{column}
+Där $x_i=\bigg\{ {0 eller 2, om i är jämn \atop 0, 1, eller 2 om i är udda}$
+
+Det finns $n$ stycken udda positioner. Varje udda position har 3 val (0, 1, eller 2).\\
+Det finns $n$ stycken jämna positioner. Varje jämn position har 2 val (0 eller 2)\\
+Det finns därför totalt $3^n\times 2^n$ sätt att välja ternära strängar enligt multiplikationsprincipen från föreläsning 1.\\
+Svar: $3^n\times 2^n$
+
 \end{xca}
-
-
-
 
 \begin{xca}
+\begin{proof}
+Låt A och B vara disjunkta mmängder där $|A|=m$ och $|B|=w$. Höger led är då antalet delmängder av storlek $k$ till $X=A\cup B$. Vi vill visa att vänster led räknar samma sak.\\
+Delmängder till $X$ av storlek $k$ kommer innehålla element från $A$ och/eller från $B$. Säg att en delmängd innehåller $j$ element från $A$, då måste resten av elementen komma från $B$, dvs $k-j$ element.\\
+Multiplikationsprincipen säger att antalet sätt att välja $j$ element från $A$ (dvs\,$\binom{m}{j}$) multiplicerat med antalet sätt att välja $k-j$ element från $B$ (dvs\, $\binom{w}{k-j}$) är lika med antalet sätt vi kan välja $j$ element från $A$ och $k-j$ element från $B$ (dvs\, $\binom{m}{j} \binom{w}{k-j}$).\\
+Detta gäller för då $j\in \{0,1, \ldots , k \}$, vilket täcker alla sätt att välja ett visst antal element från $A$. \\
+Additionsprincipen säger att summan av alla dessa fall, $\sum_{j=0}^k \binom{m}{j} \binom{w}{k-j}$, också är antalet delmängder av storlek k.
+\end{proof}
 \end{xca}
+
 
 %\bibliography{references}
 %\bibliographystyle{plainnat}
