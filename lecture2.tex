@@ -88,7 +88,7 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
   \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{graphics/GLÖM EJ INFOGA BILD.png}
-    \caption{Bevis att summan av de första $n$ udda talen är $n^2$.}
+    \caption{Ett rutnät av $n\timesn$ punkter. Bevis att summan av de första $n$ udda talen är $n^2$.}
   \end{figure}
   
   Det totala antalet prickar i figuren är alltså $\sum_{k=1}^n 2k-1$ enligt resonnemanget i bilden ovan. Eftersom figuren är kvadratisk så kan vi även räkna antalet prickar i figuren genom att multiplicera sidorna $n\timesn=n^2$. Svaret på frågan är därför $n^2$. 
@@ -127,17 +127,10 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
 
   \begin{proof}[Kombinatoriskt bevis]
     Låt $X$ vara en mängd av storlek $n$. Vi vet att $\binom{n}{k}$ räknar antalet delmängder av storlek $k$ till $X$. Låt oss komma på ett annat sätt att räkna antalet delmängder av storlek $k$, och se att det ger oss höger led.
-
-    Välj ett godtyckligt element $x \in X$. För varje delmängd $A$ till $X$ så innehåller den antingen $x$, eller så gör den inte det. För att skapa oss en delmängd $A$ av storlek $k$ som innehåller $x$ lägger vi först in $x$ i $A$, och sedan lägger vi till ytterligare $k-1$ element från de återstående $n-1$ elementen. Antalet sätt att göra det vet vi är precis $\binom{n-1}{k-1}$
-
-    Om vi i stället vill ha en delmängd $A$ som \emph{inte} innehåller $x$ så kan vi fritt välja $k$ element av de återstående $n-1$ elementen. Antalet sätt att göra det på vet vi är $\binom{n-1}{k}$.
-    
-    $$\binom{n-1}{k-1}=\{A\subseteq X:x\in A,|A|=k\}=\{\{x\}\cup B:B\subseteq X\backslash\{x\},\:|B|=k-1\}$$
-    
-    $$\binom{n-1}{k}=\{A\subseteq X:x\notin A,|A|=k\}=\{A:A\subseteq X\backslash \{x\},\:|A|=k\}$$
-
-
-    Så additionsprincipen säger oss att antalet sätt att välja en delmängd som innehåller $x$ eller inte innehåller $x$ -- vilket ju är alla delmängder -- måste vara summan, alltså $\binom{n-1}{k-1} + \binom{n-1}{k}$, såsom önskat.
+    Välj ett godtyckligt element $x \in X$. Vi låter V beteckna alla delmängder till X som innehåller $x$, dvs $V=\{A\subseteq X:x\in A\} =\{ \{ x\} \cup B | B \subseteq X \backslash \{ x\} , |B|=k-1\}$, och vi låter H beteckna alla delmängder till X som inte innehåller x, dvs $H=\{A\subseteq X:x\notin A\} =\{A \subseteq X \backslash \{ x\} , |A|=k-1\}$. Vi ser att V och H är disjunkta och att unionen av dem är potensmängden av X. Idén är att räkna antalet delmängder av storlek k som tillhör V och H, och sedan använda additionsregeln för att räkna antalet delmängder av storlek k till X. 
+    V innehåller redan elementet x vilket gör att vi har n-1 element kvar att välja från och k-1 val kvar att göra. Antalet element av storlek k i V är därför $\binom{n-1}{k-1}$.
+    H innehåller inte elementet x vilket gör att vi har n-1 element att välja från och väljer ut k element. Antalet element av storlek k i H är alltså $\binom{n-1}{k}$. Notera att om n=k så är $\binom{n-1}{k}=0$ eftersom vi inte kan välja ut k element från k-1 element. 
+    Till sist använder vi additionsregeln och får att antalet delmängder av storlek k till X är $\binom{n-1}{k-1}$+\binom{n-1}{k}$. Så $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$. 
   \end{proof}
 \end{proposition}
 
@@ -177,11 +170,12 @@ I slutet av förra föreläsningen diskuterade vi kombinatoriska bevis, och bevi
     Till slut vet vi att det totala antalet ternära strängar måste vara summan av detta över alla $k$, enligt additionsprincipen. Så om vi summerar detta får vi att det finns
     $$\sum_{k=0}^n \binom{n}{k}2^{n-k}$$
     ternära strängar. Efter att ha tillämpat likheten $\binom{n}{k} = \binom{n}{n-k}$ och vänt på indexeringen i summan ser vi att detta är precis höger led i ekvationen vi gav.
-    $$\sum_{k=0}^n \binom{n}{n-k}2^{n-k}=\binom{n}{n}2^n+\binom{n}{n-1}2^{n-1}+\cdots+\binom{n}{1}2^1+\binom{n}{0}2^0$$
-    $$\sum_{k=0}^n \binom{n}{k}2^k=\binom{n}{0}2^0+\binom{n}{1}2^{1}+\cdots+\binom{n}{n-1}2^n-1+\binom{n}{n}2^n$
+        $$\sum_{k=0}^n \binom{n}{n-k}2^{n-k}=\binom{n}{n}2^n+\binom{n}{n-1}2^{n-1}+\cdots+\binom{n}{1}2^1+\binom{n}{0}2^0$$
+    $$\sum_{k=0}^n \binom{n}{k}2^k=\binom{n}{0}2^0+\binom{n}{1}2^{1}+\cdots+\binom{n}{n-1}2^n-1+\binom{n}{n}2^n$$
 
     Så 
     $$\sum_{k=0}^n \binom{n}{n-k}2^{n-k}=\sum_{k=0}^n \binom{n}{k}2^k$$
+  \end{proof}
 
   \begin{proof}[Algebraiskt bevis]
     Vi använder binomialsatsen och ser att
@@ -217,7 +211,7 @@ Antag att vi vill fördela ut $n$ stycken osärskiljbara objekt bland $k$ särsk
 \begin{example}
   Tre stycken lärare konkurrerar om två stycken äpplen de har fått av sina elever. På hur många olika sätt kan äpplena fördelas ut?
 
-  Här är $k=3$ och $n=2$. Det finns sex olika sätt:
+  Här är $n=3$ och $k=2$. Det finns sex olika sätt:
   \begin{table}[h]
     \begin{tabularx}{0.7\textwidth}{ccc}
     Äpplen för A & Äpplen för B      & Äpplen för C \\ 
