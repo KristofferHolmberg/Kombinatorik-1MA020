@@ -343,6 +343,58 @@ Antag att vi vill fördela ut $n$ stycken osärskiljbara objekt bland $k$ särsk
   $$\sum_{j=0}^k \binom{m}{j}\binom{w}{k-j} = \binom{m + w}{k}.$$
 \end{xca}
 
+\newpage
+\section{Lösningsförslag}
+
+\begin{xca}
+\end{xca}
+
+
+\begin{xca}
+\end{xca}
+
+
+\begin{xca}
+För att lösa uppgiften kan vi andvända oss av kompositioner. Vi kan se problemet som att vi ska dela ut 43 "objekt" mellan 3 "personer". Vi börjar att ge alla "personer" tillräckligt med "objekt" för att vilkoren ska uppfyllas. Dvs att att x får 1 objekt, y får 17 objekt och z får 5 objekt. Det betyder att vi har totalt $43-(1+17+5)= 20$ "objekt" kvar att dela ut på 3 personer. Vi löser detta genom 
+$$\binom{n+k-1}{k-1}$$ där n är antalet objekt och k antalet personer.
+$$\binom{n+k-1}{k-1}=\binom{20+3-1}{3-1}= \binom{22}{2}= 231$$
+Alltså kan vi lösa problemet på 231 olika sätt
+\end{xca}
+
+\begin{xca}
+a) Ordet $54240244$ har:
+\begin{itemize}
+  \item 1 "5"
+  \item 4 "4"
+  \item 2 "2"
+  \item 1 "0"
+\end{itemize}
+Eftersom vi har flest $4$or så väljer jag att först placera ut dem (spelar ingen roll vilken man börjar med). Vi har totalt 8 platser och 4 st $4$ vilket ger oss $\binom{8}{4}$ olika sätt att placera ut $4$orna.\\
+Därefter vill vi placera ut nästa siffra. Låt oss fortsätta med $2$orna. Om vi vid varje omordning placerar ut $4$orna först koer det alltid finnas 4 tomma platser kvar för resterande siffror oavsett vart $4$orna placerades. (vi vet inte vart dem placerades bara att 4 platser ockuperats vilket ger oss $8-4=4$ platser kvar.) Därför har vi $\binom{4}{2}$ stycken val för $2$orna.\\
+Vi fortsätter med $5$orna. Med samma princip som innan har vi nu $8-4-2=2$ platser kvar alltså har vi $\binom{2}{1}$ olika sätt att placera ut $5$.\\
+Sist är $1$an och nu har vi bara 1 plats kvar så det ger oss $\binom{1}{1}$ olika sätt att placera ut $1$an. Detta kommer då ge oss:
+$$\binom{8}{4}\binom{4}{2}\binom{2}{1}\binom{1}{1}=\frac{8!}{4!4!}\frac{4!}{2!2!}\frac{2!}{1!1!}\frac{1!}{1!0!}$$
+$$=840$$
+Svar: Det finns 840 olika omordningar.\\
+b) Nu vill vi inte att $0$ ska vara först så vi börjar med att placera ut $0$. $0$ har då 7 platser att välja mellan, alla utom den första platsen. Vi får då $\binom{7}{1}$ lika val att placera ut $0$ (då vi har 1 $0$).\\
+Vi fortsätteer med nästa siffra, ex $4$. Dem har då också 7 platser kvar ($7-1=6$ platser efter vi valt plats för $0$ men sen nu kan vi räkna med första platsen för $4$ får vara på plats 1. Skulle vi ha haft fler $0$or så kan vi bara subtrahera dem från antalet platser) Vi har  då $\binom{7}{4}$ olika sätt att placera ut $4$orna.\\
+Resten har samma princip som innan. $2$orna har 3 platser kvar så $\binom{3}{2}$ olika sätt att placera ut dem, och sist $\binom{1}{1}$ olika sätt för $5$an.\\
+Därför har vi:
+$$\binom{7}{1}\binom{7}{4}\binom{3}{2}\binom{1}{1}=\frac{7!}{1!6!}\frac{7!}{4!3!}\frac{3!}{2!1!}\frac{1!}{1!0!}$$
+$$=735$$
+Vilket låter logiskt eftersom 735 är 7 åttondelar av 840 och det borde finnas lika många omordningar för varje plats 0 kan befinna sig på, så om vi tar bort en plats borde det vara samma som att ta bort en åttondel.
+\end{xca}
+
+
+\begin{xca}
+\end{xca}
+
+
+
+
+\begin{xca}
+\end{xca}
+
 %\bibliography{references}
 %\bibliographystyle{plainnat}
 
