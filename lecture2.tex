@@ -347,12 +347,16 @@ Antag att vi vill fördela ut $n$ stycken osärskiljbara objekt bland $k$ särsk
 \section{Lösningsförslag}
 
 \begin{xca}
+\begin{proof}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[]{graphics/Kombinatorik F 2 ls1.png}
+  \end{figure}
 $\binom{n+1}{2}$ är antalet sätt vi kan välja ut delmängder av storlek $2$ från $n+1$ element. Ett sätt att räkna detta är att välja ett godtyckligt element och kolla antalet sätt som detta element kan paras med resten av de kvarvarande $n$ stycken elementen. Detta blir $\binom{n}{1}=n$ sätt eftersom vi vill välja ut ett till element och vi har $n$ element att välja mellan.\\
 Nästa steg är att välja ett nytt godtyckligt element och kolla antalet sätt osm detta element kan paras med resten av de $n-1$ kvarvarande elementen. Detta blir $\binom{n-1}{1}=n-1$ sätt.\\ Denna process upprepas tills alla element har valts och vi kan sedan använda additionsregels för att hitta totala antalet sätt att välja ut delmängder av storlek $2$ från $n+1$ element. \\
 Vi kan uttrycka detta som $\binom{n}{1}+\binom{n-1}{1}+\cdots + \binom{2}{1}+\binom{1}{1}=n+(n-1)+\cdots +2+1=\sum_{k=1}^nk$\\
 Exempel på hur processen tar formen av en triangel:
-\begin{proof}
-\begin{figure}[h]
+ \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{graphics/kombinatorik ls1.png}
   \end{figure}
@@ -368,7 +372,7 @@ $"\rightarrow": $ Varje delmängd $ a\subseteq X $ kan göras om till en binär 
 $"\leftarrow": $ Dessa binära strängar kan göras om till delmängder igen genom att låta det $i$:te elementet i $X$ tillhöra delmängden omm $x_i=1$. BInära strängarna kan alltså ses som en unik kod som anger vilka element som är med i delmängden.\\
 
 Vi vet från fl 1 att antalet binära strängar med $n$ element är $2^n$.\\
-Från bijektionen vet vi att: $$sum_{k=0}^n\binom{n}{k}=|\{A:A\subseteq X\}|=|\{binära strängar av längd n\}|=2^n$$
+Från bijektionen vet vi att: $$sum_{k=0}^n\binom{n}{k}=|\{A:A\subseteq X\}|=|\{\text{binära strängar av längd n}\}|=2^n$$
 \end{xca}
 
 
