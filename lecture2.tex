@@ -355,6 +355,14 @@ Exempel på hur processen tar formen av en triangel:
 
 
 \begin{xca}
+Låt $X$ vara en mängd där $|X|=n$. Numrera elementen i $X$ från $1$ till $n$.\\
+
+Vi vill hitta en bijektion mellan antalet delmängder till $X$ och binära strängar av längd $n$.\\
+$"\rightarrow": $ Varje delmängd $ a\subseteq X $ kan göras om till en binär sträng av längd $n$, dvs $x_1,x_2,\ldots , x_n$, genom att låta $x_i=$ \Big \{ ${1,\, om \, i\in x \atop 0, \, om\, i \notin x}$ \\
+$"\leftarrow": $ Dessa binära strängar kan göras om till delmängder igen genom att låta det $i$:te elementet i $X$ tillhöra delmängden omm $x_i=1$. BInära strängarna kan alltså ses som en unik kod som anger vilka element som är med i delmängden.\\
+
+Vi vet från fl 1 att antalet binära strängar med $n$ element är $2^n$.\\
+Från bijektionen vet vi att: $$sum_{k=0}^n\binom{n}{k}=|\{A:A\subseteq X\}|=|\{binära strängar av längd n\}|=2^n$$
 \end{xca}
 
 
